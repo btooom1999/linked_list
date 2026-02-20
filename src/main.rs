@@ -1,3 +1,7 @@
+#![allow(unused)]
+
+mod reverse_linked_list;
+
 fn main() {
-    println!("Hello, world!");
+    reverse_linked_list::main();
 }
