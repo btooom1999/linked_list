@@ -6,7 +6,8 @@ mod linked_list_cycle;
 mod palindrome_linked_list;
 mod remove_linked_list_elements;
 mod remove_duplicates_from_sorted_list;
+mod middle_of_the_linked_list;
 
 fn main() {
-    remove_duplicates_from_sorted_list::main();
+    middle_of_the_linked_list::main();
 }
