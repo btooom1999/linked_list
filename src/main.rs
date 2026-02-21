@@ -8,7 +8,8 @@ mod remove_linked_list_elements;
 mod remove_duplicates_from_sorted_list;
 mod middle_of_the_linked_list;
 mod intersection_of_two_linked_list;
+mod delete_n_nodes_after_m_nodes_of_a_linked_list;
 
 fn main() {
-    intersection_of_two_linked_list::main();
+    delete_n_nodes_after_m_nodes_of_a_linked_list::main();
 }
