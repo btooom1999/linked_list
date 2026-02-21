@@ -7,7 +7,8 @@ mod palindrome_linked_list;
 mod remove_linked_list_elements;
 mod remove_duplicates_from_sorted_list;
 mod middle_of_the_linked_list;
+mod intersection_of_two_linked_list;
 
 fn main() {
-    middle_of_the_linked_list::main();
+    intersection_of_two_linked_list::main();
 }
