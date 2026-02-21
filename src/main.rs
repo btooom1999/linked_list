@@ -17,7 +17,8 @@ mod reorder_list;
 mod maximum_twin_sum_of_a_linked_list;
 mod remove_nth_node_from_end_of_list;
 mod delete_nodes_from_linked_list_present_in_array;
+mod swapping_nodes_in_a_linked_list;
 
 fn main() {
-    delete_nodes_from_linked_list_present_in_array::main();
+    swapping_nodes_in_a_linked_list::main();
 }
