@@ -16,7 +16,8 @@ mod remove_nodes_from_linked_list;
 mod reorder_list;
 mod maximum_twin_sum_of_a_linked_list;
 mod remove_nth_node_from_end_of_list;
+mod delete_nodes_from_linked_list_present_in_array;
 
 fn main() {
-    remove_nth_node_from_end_of_list::main();
+    delete_nodes_from_linked_list_present_in_array::main();
 }
