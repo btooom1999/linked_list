@@ -15,7 +15,8 @@ mod find_the_minimum_and_maximum_number_of_nodes_between_critical_points;
 mod remove_nodes_from_linked_list;
 mod reorder_list;
 mod maximum_twin_sum_of_a_linked_list;
+mod remove_nth_node_from_end_of_list;
 
 fn main() {
-    maximum_twin_sum_of_a_linked_list::main();
+    remove_nth_node_from_end_of_list::main();
 }
