@@ -46,20 +46,20 @@ fn reorder_list(head: &mut Option<Box<ListNode>>) {
     }
 
     let mut reversed_head = reverse_list(slow.cloned());
-    let mut i = 0;
     let mut removed_vals = VecDeque::new();
+    let mut i = 1;
     let mut list = head.as_mut();
+    list = list.unwrap().next.as_mut();
     while let Some(node) = list {
         list = node.next.as_mut();
-        let temp_val = node.val;
 
-        if i != 0 && i % 2 == 0 {
+        if i % 2 == 0 {
+            removed_vals.push_back(node.val);
             node.val = removed_vals.pop_front().unwrap();
-            removed_vals.push_back(temp_val);
-        } else if i != 0 && i % 2 != 0 {
+        } else if i % 2 != 0 {
+            removed_vals.push_back(node.val);
             node.val = reversed_head.as_ref().unwrap().val;
             reversed_head = reversed_head.unwrap().next;
-            removed_vals.push_back(temp_val);
         }
 
         i += 1;
