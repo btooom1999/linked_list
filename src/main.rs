@@ -12,7 +12,8 @@ mod delete_n_nodes_after_m_nodes_of_a_linked_list;
 mod merge_in_between_linked_lists;
 mod merge_nodes_in_between_zeroes;
 mod find_the_minimum_and_maximum_number_of_nodes_between_critical_points;
+mod remove_nodes_from_linked_list;
 
 fn main() {
-    find_the_minimum_and_maximum_number_of_nodes_between_critical_points::main();
+    remove_nodes_from_linked_list::main();
 }
