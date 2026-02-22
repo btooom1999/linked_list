@@ -20,7 +20,8 @@ mod delete_nodes_from_linked_list_present_in_array;
 mod swapping_nodes_in_a_linked_list;
 mod add_two_numbers;
 mod add_two_numbers_2;
+mod swap_nodes_in_pairs;
 
 fn main() {
-    add_two_numbers_2::main();
+    swap_nodes_in_pairs::main();
 }
