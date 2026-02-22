@@ -21,7 +21,8 @@ mod swapping_nodes_in_a_linked_list;
 mod add_two_numbers;
 mod add_two_numbers_2;
 mod swap_nodes_in_pairs;
+mod partition_list;
 
 fn main() {
-    swap_nodes_in_pairs::main();
+    partition_list::main();
 }
