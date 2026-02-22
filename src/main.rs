@@ -22,7 +22,8 @@ mod add_two_numbers;
 mod add_two_numbers_2;
 mod swap_nodes_in_pairs;
 mod partition_list;
+mod rotate_list;
 
 fn main() {
-    partition_list::main();
+    rotate_list::main();
 }
