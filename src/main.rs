@@ -19,7 +19,8 @@ mod remove_nth_node_from_end_of_list;
 mod delete_nodes_from_linked_list_present_in_array;
 mod swapping_nodes_in_a_linked_list;
 mod add_two_numbers;
+mod add_two_numbers_2;
 
 fn main() {
-    add_two_numbers::main();
+    add_two_numbers_2::main();
 }
