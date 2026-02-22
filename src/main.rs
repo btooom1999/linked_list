@@ -23,7 +23,8 @@ mod add_two_numbers_2;
 mod swap_nodes_in_pairs;
 mod partition_list;
 mod rotate_list;
+mod reverse_linked_list_2;
 
 fn main() {
-    rotate_list::main();
+    reverse_linked_list_2::main();
 }
