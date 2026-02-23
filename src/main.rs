@@ -24,7 +24,8 @@ mod swap_nodes_in_pairs;
 mod partition_list;
 mod rotate_list;
 mod reverse_linked_list_2;
+mod split_linked_list_in_parts;
 
 fn main() {
-    reverse_linked_list_2::main();
+    split_linked_list_in_parts::main();
 }
