@@ -25,7 +25,8 @@ mod partition_list;
 mod rotate_list;
 mod reverse_linked_list_2;
 mod split_linked_list_in_parts;
+mod design_linked_list;
 
 fn main() {
-    split_linked_list_in_parts::main();
+    design_linked_list::main();
 }
