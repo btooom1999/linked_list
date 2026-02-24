@@ -26,7 +26,8 @@ mod rotate_list;
 mod reverse_linked_list_2;
 mod split_linked_list_in_parts;
 mod design_linked_list;
+mod design_browser_history;
 
 fn main() {
-    design_linked_list::main();
+    design_browser_history::main();
 }
