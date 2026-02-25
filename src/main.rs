@@ -31,7 +31,8 @@ mod sort_list;
 mod design_circular_queue;
 mod insertion_sort_list;
 mod lru_cache;
+mod copy_list_with_random_pointer;
 
 fn main() {
-    linked_list_cycle::main();
+    copy_list_with_random_pointer::main();
 }
