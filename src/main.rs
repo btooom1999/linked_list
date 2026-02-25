@@ -29,7 +29,8 @@ mod design_linked_list;
 mod design_browser_history;
 mod sort_list;
 mod design_circular_queue;
+mod insertion_sort_list;
 
 fn main() {
-    design_circular_queue::main();
+    insertion_sort_list::main();
 }
