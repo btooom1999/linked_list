@@ -28,7 +28,8 @@ mod split_linked_list_in_parts;
 mod design_linked_list;
 mod design_browser_history;
 mod sort_list;
+mod design_circular_queue;
 
 fn main() {
-    sort_list::main();
+    design_circular_queue::main();
 }
