@@ -30,7 +30,8 @@ mod design_browser_history;
 mod sort_list;
 mod design_circular_queue;
 mod insertion_sort_list;
+mod lru_cache;
 
 fn main() {
-    insertion_sort_list::main();
+    linked_list_cycle::main();
 }

@@ -1,10 +1,7 @@
-use core::borrow;
-use std::{cell::RefCell, rc::Rc};
-
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 struct ListNode {
     val: i32,
-    next: Option<Rc<RefCell<ListNode>>>,
+    next: Option<*mut ListNode>,
 }
 
 impl ListNode {
@@ -13,70 +10,63 @@ impl ListNode {
     }
 }
 
-fn vec_to_list(nums: Vec<i32>) -> Option<Rc<RefCell<ListNode>>> {
-    let mut head: Option<Rc<RefCell<ListNode>>> = None;
-    let mut tail: Option<Rc<RefCell<ListNode>>> = None;
+fn vec_to_list(nums: Vec<i32>) -> Option<*mut ListNode> {
+    let mut head: Option<*mut ListNode> = None;
+    let mut tail = &mut head;
 
     for num in nums {
-        let node = Rc::new(RefCell::new(ListNode::new(num)));
-        if let Some(mut t) = tail.clone() {
-            t.borrow_mut().next = Some(node.clone());
-        } else {
-            head = Some(node.clone())
-        }
+        let mut node = Box::new(ListNode::new(num));
+        let mut raw_node: *mut _ = &mut *node;
 
-        tail = Some(node);
+        *tail = Some(raw_node);
+        unsafe { tail = &mut (*tail.unwrap()).next; }
+
+        std::mem::forget(node);
     }
 
     head
 }
 
-fn add_cycle(mut list: Option<Rc<RefCell<ListNode>>>, mut pos: i32) -> Option<Rc<RefCell<ListNode>>> {
+fn add_cycle(mut head: Option<*mut ListNode>, pos: i32) -> Option<*mut ListNode> {
     if pos < 0 {
-        return list;
+        return head;
     }
 
-    let mut current = list.clone();
-    while let Some(node) = current.clone() {
-        if pos == 0 {
-            break;
+    let mut curr = head;
+    for _ in 0..pos {
+        if let Some(node) = curr {
+            unsafe { curr = (*node).next; }
+        } else {
+            return head;
         }
-
-        pos -= 1;
-        current = node.borrow().next.clone();
     }
 
-    if pos > 0 {
-        return list;
-    }
-
-    while let Some(mut node) = list.clone() {
-        if node.borrow().next.is_none() {
-            node.borrow_mut().next = current.clone();
-            break;
+    let mut last = head;
+    unsafe {
+        while let Some(node) = last {
+            if (*node).next.is_some() {
+                last = (*node).next;
+            } else {
+                (*node).next = curr;
+                break;
+            }
         }
-        list = node.borrow().next.clone();
     }
 
-    list
+    head
 }
 
-fn has_cycle(head: Option<Rc<RefCell<ListNode>>>) -> bool {
-    let mut slow = head.clone();
-    let mut fast = head.clone();
+fn has_cycle(head: Option<*mut ListNode>) -> bool {
+    let mut slow = head;
+    let mut fast = head;
+    unsafe  {
+        while fast.is_some() && fast.is_some() && (*fast.unwrap()).next.is_some() {
+            slow = (*slow.unwrap()).next;
+            fast = (*(*fast.unwrap()).next.unwrap()).next;
 
-    while let (Some(slow_node), Some(fast_node)) = (
-        slow,
-        fast
-            .and_then(|v| v.borrow().next.clone())
-            .and_then(|v| v.borrow().next.clone())
-    )
-    {
-        slow = slow_node.borrow().next.clone();
-        fast = fast_node.borrow().next.clone();
-
-        if Rc::ptr_eq(&slow_node, &fast_node) {
-            return true;
+            if slow == fast {
+                return true;
+            }
         }
     }
 
@@ -84,6 +74,6 @@ fn has_cycle(head: Option<Rc<RefCell<ListNode>>>) -> bool {
 }
 
 pub fn main() {
-    let head = add_cycle(vec_to_list(vec![3,2,0,0,-4]), 0);
-    println!("{:?}", has_cycle(head));
+    let mut head = add_cycle(vec_to_list(vec![1,2]), 1);
+    println!("{}", has_cycle(head));
 }
