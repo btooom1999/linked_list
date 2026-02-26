@@ -35,5 +35,5 @@ mod copy_list_with_random_pointer;
 mod find_the_duplicate_number;
 
 fn main() {
-    find_the_duplicate_number::main();
+    lru_cache::main();
 }
