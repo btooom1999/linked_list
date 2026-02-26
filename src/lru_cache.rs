@@ -62,9 +62,9 @@ impl LRUCache {
 
         self.tail = Some(raw_ptr);
 
-        if let Some(rm_node) = self.hashmap.get_mut(&key) {
+        if let Some(rm_node) = self.hashmap.remove(&key) {
             unsafe {
-                match ((**rm_node).prev, (**rm_node).next.take()) {
+                match ((*rm_node).prev, (*rm_node).next.take()) {
                     // delete middle node
                     (Some(mut prev_node), Some(mut next_node)) => {
                         next_node.prev = Some(prev_node);
@@ -78,8 +78,6 @@ impl LRUCache {
                     _ => unreachable!()
                 }
             }
-
-            *rm_node = raw_ptr;
         }
 
         self.hashmap.insert(key, raw_ptr);
