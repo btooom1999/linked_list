@@ -32,7 +32,8 @@ mod design_circular_queue;
 mod insertion_sort_list;
 mod lru_cache;
 mod copy_list_with_random_pointer;
+mod find_the_duplicate_number;
 
 fn main() {
-    copy_list_with_random_pointer::main();
+    find_the_duplicate_number::main();
 }

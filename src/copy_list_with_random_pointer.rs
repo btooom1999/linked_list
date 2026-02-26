@@ -13,14 +13,14 @@ impl ListNode {
     }
 }
 
-fn copy_random_list(mut list: Vec<(i32, Option<i32>)>) -> Option<*mut ListNode> {
+fn copy_random_list(list: Vec<(i32, Option<i32>)>) -> Option<*mut ListNode> {
     let mut hashmap = HashMap::new();
     let mut head = None;
     let mut tail = &mut head;
 
     unsafe {
-        for (i, (num, _)) in list.iter().enumerate() {
-            let mut node = Box::new(ListNode::new(*num));
+        for (i, &(num, _)) in list.iter().enumerate() {
+            let mut node = Box::new(ListNode::new(num));
             let raw_node: *mut _ = &mut *node;
 
             *tail = Some(raw_node);
@@ -47,9 +47,10 @@ fn copy_random_list(mut list: Vec<(i32, Option<i32>)>) -> Option<*mut ListNode> 
 }
 
 pub fn main() {
-    let head = [(7, None), (13, Some(0)), (11, Some(4)), (10, Some(2)), (1, Some(0)), (1, Some(0))];
-    unsafe  {
-        let mut head = copy_random_list(head.into());
+    // let mut head = copy_random_list([(1, Some(1)), (2, Some(1))].into());
+    let mut head = copy_random_list([(3, None), (3, Some(0)), (3, None)].into());
+    // let mut head = copy_random_list([(7, None), (13, Some(0)), (11, Some(4)), (10, Some(2)), (1, Some(0)), (1, Some(0))].into());
+    unsafe {
         while let Some(node) = head {
             println!("current: {:?} - val: {:?} - next: {:?} - random: {:?}", node, (*node).val, (*node).next, (*node).random);
             head = (*node).next;
