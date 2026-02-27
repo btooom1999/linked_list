@@ -28,7 +28,7 @@ impl LRUCache {
             capacity,
             head: None,
             tail: None,
-            hashmap: HashMap::with_capacity(capacity),
+            hashmap: HashMap::with_capacity(capacity+1),
         }
     }
 

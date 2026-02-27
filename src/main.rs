@@ -33,7 +33,8 @@ mod insertion_sort_list;
 mod lru_cache;
 mod copy_list_with_random_pointer;
 mod find_the_duplicate_number;
+mod plus_one_linked_list;
 
 fn main() {
-    lru_cache::main();
+    plus_one_linked_list::main();
 }
