@@ -34,7 +34,8 @@ mod lru_cache;
 mod copy_list_with_random_pointer;
 mod find_the_duplicate_number;
 mod plus_one_linked_list;
+mod print_immutable_linked_list_in_reverse;
 
 fn main() {
-    plus_one_linked_list::main();
+    print_immutable_linked_list_in_reverse::main();
 }
