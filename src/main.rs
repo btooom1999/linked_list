@@ -6,6 +6,7 @@ mod linked_list_cycle;
 mod palindrome_linked_list;
 mod remove_linked_list_elements;
 mod remove_duplicates_from_sorted_list;
+mod remove_duplicates_from_sorted_list_2;
 mod middle_of_the_linked_list;
 mod intersection_of_two_linked_list;
 mod delete_n_nodes_after_m_nodes_of_a_linked_list;
@@ -37,5 +38,5 @@ mod plus_one_linked_list;
 mod print_immutable_linked_list_in_reverse;
 
 fn main() {
-    print_immutable_linked_list_in_reverse::main();
+    remove_duplicates_from_sorted_list_2::main();
 }
